@@ -9,6 +9,7 @@ Future<void> main() async {
   final database = await $FloorFlutterDatabase
       .databaseBuilder('flutter_database.db')
       .build();
+  await database.database.execute('''CREATE TABLE IF NOT EXISTS `Task` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `message` TEXT NOT NULL)''');
   final dao = database.taskDao;
 
   runApp(FloorApp(dao));
@@ -72,6 +73,7 @@ class TasksListView extends StatelessWidget {
       child: StreamBuilder<List<Task>>(
         stream: dao.findAllTasksAsStream(),
         builder: (_, snapshot) {
+          if(snapshot.hasError) return Text("${snapshot.error.toString()}");
           if (!snapshot.hasData) return Container();
 
           final tasks = snapshot.requireData;

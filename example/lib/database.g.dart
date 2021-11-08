@@ -48,7 +48,7 @@ class _$FlutterDatabaseBuilder {
         : ':memory:';
     final database = _$FlutterDatabase();
     database.database = await database.open(
-      path,
+      ':memory:',
       _migrations,
       _callback,
     );
@@ -81,6 +81,7 @@ class _$FlutterDatabase extends FlutterDatabase {
         await callback?.onUpgrade?.call(database, startVersion, endVersion);
       },
       onCreate: (database, version) async {
+        print("on create db");
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `Task` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `message` TEXT NOT NULL)');
 

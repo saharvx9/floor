@@ -221,6 +221,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -333,6 +338,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.11.0"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
   pool:
     dependency: transitive
     description:
@@ -407,7 +419,14 @@ packages:
       name: sqflite_common_ffi
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0+3"
+    version: "2.1.0"
+  sqflite_web:
+    dependency: "direct dev"
+    description:
+      path: "../../sqflite_web"
+      relative: true
+    source: path
+    version: "2.0.0"
   sqlite3:
     dependency: transitive
     description:
